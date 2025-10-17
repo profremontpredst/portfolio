@@ -11,10 +11,23 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #2563EB;
+            --primary-light: #3B82F6;
+            --primary-dark: #1D4ED8;
+            --text: #1F2937;
+            --text-light: #6B7280;
+            --background: #FFFFFF;
+            --surface: #F9FAFB;
+            --border: #E5E7EB;
+            --accent: #0EA5E9;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--background);
+            color: var(--text);
             line-height: 1.6;
         }
         
@@ -26,24 +39,24 @@
         
         /* Header */
         .hero {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background: linear-gradient(135deg, var(--surface) 0%, var(--background) 100%);
             padding: 80px 0;
             text-align: center;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--border);
         }
         
         .hero h1 {
             font-size: 3rem;
-            background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text);
             margin-bottom: 1rem;
+            font-weight: 700;
         }
         
         .hero .subtitle {
             font-size: 1.4rem;
-            color: #888;
+            color: var(--primary);
             margin-bottom: 2rem;
+            font-weight: 500;
         }
         
         .contacts {
@@ -51,13 +64,40 @@
             justify-content: center;
             gap: 2rem;
             flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            color: #ccc;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            color: var(--primary);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            padding: 10px 20px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
         }
         
         /* Projects */
@@ -73,13 +113,14 @@
         }
         
         .project-card {
-            background: #1a1a1a;
-            border: 1px solid #333;
+            background: var(--background);
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 2rem;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 2px 8px var(--shadow);
         }
         
         .project-card::before {
@@ -89,26 +130,27 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
         }
         
         .project-card:hover {
             transform: translateY(-5px);
-            border-color: #00d4ff;
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.1);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
         }
         
         .project-card h3 {
-            color: #00d4ff;
+            color: var(--text);
             font-size: 1.3rem;
             margin-bottom: 1rem;
         }
         
         .company {
-            color: #888;
+            color: var(--primary);
             font-size: 0.9rem;
             margin-bottom: 1rem;
             display: block;
+            font-weight: 500;
         }
         
         .tech-stack {
@@ -119,24 +161,24 @@
         }
         
         .tech-tag {
-            background: #2a2a2a;
-            color: #00d4ff;
+            background: var(--surface);
+            color: var(--primary);
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;
-            border: 1px solid #333;
+            border: 1px solid var(--border);
         }
         
         .results {
-            background: #2a2a2a;
+            background: var(--surface);
             padding: 1rem;
             border-radius: 8px;
             margin-top: 1rem;
-            border-left: 3px solid #00d4ff;
+            border-left: 3px solid var(--primary);
         }
         
         .results strong {
-            color: #00d4ff;
+            color: var(--primary);
         }
         
         /* Animations */
@@ -175,6 +217,17 @@
             .contacts {
                 flex-direction: column;
                 align-items: center;
+                gap: 1rem;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .social-link {
+                width: 200px;
+                text-align: center;
             }
         }
     </style>
@@ -185,10 +238,13 @@
             <h1>Феськов Михаил</h1>
             <div class="subtitle">n8n & AI Developer</div>
             <div class="contacts">
-                <div class="contact-item">📍 Владимир</div>
-                <div class="contact-item">📧 your-email@domain.com</div>
-                <div class="contact-item">📱 +7 XXX XXX-XX-XX</div>
-                <div class="contact-item">💼 GitHub: feskov-dev</div>
+                <a href="tel:+79101827244" class="contact-item">📱 +7 (910) 182-72-44</a>
+                <a href="https://t.me/mike_paik" class="contact-item" target="_blank">📱 Telegram</a>
+                <a href="https://github.com/profremontpredst" class="contact-item" target="_blank">💼 GitHub</a>
+            </div>
+            <div class="social-links">
+                <a href="https://t.me/mike_paik" class="social-link" target="_blank">Написать в Telegram</a>
+                <a href="https://github.com/profremontpredst" class="social-link" target="_blank">Мой GitHub</a>
             </div>
         </div>
     </header>
@@ -296,17 +352,7 @@
     </section>
 
     <script>
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Add intersection observer for animations
+        // Smooth animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
