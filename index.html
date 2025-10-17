@@ -64,7 +64,6 @@
             justify-content: center;
             gap: 2rem;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
         }
         
         .contact-item {
@@ -78,26 +77,6 @@
         
         .contact-item:hover {
             color: var(--primary);
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-        
-        .social-link {
-            padding: 10px 20px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .social-link:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
         }
         
         /* Projects */
@@ -169,6 +148,28 @@
             border: 1px solid var(--border);
         }
         
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        
+        .project-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 0.3rem 0.8rem;
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .project-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
         .results {
             background: var(--surface);
             padding: 1rem;
@@ -219,16 +220,6 @@
                 align-items: center;
                 gap: 1rem;
             }
-            
-            .social-links {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .social-link {
-                width: 200px;
-                text-align: center;
-            }
         }
     </style>
 </head>
@@ -241,10 +232,6 @@
                 <a href="tel:+79101827244" class="contact-item">📱 +7 (910) 182-72-44</a>
                 <a href="https://t.me/mike_paik" class="contact-item" target="_blank">📱 Telegram</a>
                 <a href="https://github.com/profremontpredst" class="contact-item" target="_blank">💼 GitHub</a>
-            </div>
-            <div class="social-links">
-                <a href="https://t.me/mike_paik" class="social-link" target="_blank">Написать в Telegram</a>
-                <a href="https://github.com/profremontpredst" class="social-link" target="_blank">Мой GitHub</a>
             </div>
         </div>
     </header>
@@ -279,6 +266,12 @@
                         <span class="tech-tag">Google Sheets API</span>
                         <span class="tech-tag">Bitrix24 API</span>
                     </div>
+                    <div class="project-links">
+                        <a href="https://voice-assistant-anna.online" class="project-link" target="_blank">Фронтенд</a>
+                        <a href="https://github.com/profremontpredst/voice-assistant-anna" class="project-link" target="_blank">Клиент</a>
+                        <a href="https://github.com/profremontpredst/openai-gpt-proxy" class="project-link" target="_blank">GPT Сервер</a>
+                        <a href="https://github.com/profremontpredst/elevenlabs-proxy" class="project-link" target="_blank">Озвучка</a>
+                    </div>
                     <div class="results">
                         <strong>Результаты:</strong> 21.7% конверсия, спам с 36% до 3%, +42% тёплых лидов
                     </div>
@@ -295,6 +288,9 @@
                         <span class="tech-tag">Bitrix24 API</span>
                         <span class="tech-tag">Node.js</span>
                     </div>
+                    <div class="project-links">
+                        <a href="https://github.com/profremontpredst/gpt-widget" class="project-link" target="_blank">Исходный код</a>
+                    </div>
                     <div class="results">
                         <strong>Результаты:</strong> 54% обращений автоматизировано, +17% конверсия, ответ 25с
                     </div>
@@ -304,15 +300,15 @@
                 <div class="project-card">
                     <h3>WebRTC звонки с AI-диалогом</h3>
                     <span class="company">FinLine Group</span>
-                    <p>Звонки из браузера → реальный AI-диалог → ElevenLabs Streaming TTS + GPT-4o</p>
+                    <p>WebSocket сервер + Voximplant → AI-диалог в реальном времени → интеграция с CRM</p>
                     <div class="tech-stack">
                         <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">WebRTC</span>
-                        <span class="tech-tag">ElevenLabs</span>
-                        <span class="tech-tag">OpenAI GPT-4o</span>
+                        <span class="tech-tag">WebSocket</span>
+                        <span class="tech-tag">Voximplant</span>
+                        <span class="tech-tag">OpenAI GPT</span>
                     </div>
                     <div class="results">
-                        <strong>Результаты:</strong> задержка < 0.6с, вовлечённость 68%, реалистичный голос
+                        <strong>Результаты:</strong> задержка < 0.6с, вовлечённость 68%, реалистичный диалог
                     </div>
                 </div>
 
@@ -334,17 +330,18 @@
 
                 <!-- Project 6 -->
                 <div class="project-card">
-                    <h3>Контент-завод на LangChain</h3>
+                    <h3>Контент-завод с AI-аватаром</h3>
                     <span class="company">R77.ai</span>
-                    <p>Генерация статей/карточек/Reels → парсинг источников → публикация через Google Sheets</p>
+                    <p>Генерация видео-контента: GPT сценарий → HeyGen аватар → озвучка ElevenLabs</p>
                     <div class="tech-stack">
-                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Node.js</span>
                         <span class="tech-tag">OpenAI GPT</span>
-                        <span class="tech-tag">mini-RAG</span>
-                        <span class="tech-tag">Google Sheets API</span>
+                        <span class="tech-tag">HeyGen API</span>
+                        <span class="tech-tag">ElevenLabs</span>
+                        <span class="tech-tag">FFmpeg</span>
                     </div>
                     <div class="results">
-                        <strong>Результаты:</strong> 28 публикаций/день, -80% времени, единый стиль
+                        <strong>Результаты:</strong> автоматизация создания видео-контента, синхронизация голоса и аватара
                     </div>
                 </div>
             </div>
